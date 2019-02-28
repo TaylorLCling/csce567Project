@@ -1,3 +1,40 @@
+# General Plan
+
+* [This is the data source](https://www.admin.sc.gov/accountability-portal/state-salaries)
+
+Here are some sample records:
+
+```
+GOVERNOR'S OFFICE	LEMOINE	 LEIGH	ADMINISTRATION-GOV OFFICE	$91,985.00 		$91,985.00 
+GOVERNOR'S OFFICE	MCMASTER	 HENRY	AGENCY HEAD	$106,078.00 		$106,078.00 
+GOVERNOR'S OFFICE	WALKER	 EDGAR	EXECUTIVE STAFF-GOV OFFICE	$165,000.00 		$165,000.00 
+GOVERNOR'S OFFICE	WINDSOR	 TOMMY	ADMINISTRATION-GOV OFFICE	$50,400.00 		$50,400.00 
+GOVERNOR'S OFFICE	QUATTRONE	 KRISTY	ADMINISTRATION-GOV OFFICE	$70,173.00 		$70,173.00 
+```
+
+The schema seems to be
+
+* Name
+* Agency
+* Job Title
+* Compensation without Bonuses
+* Bonuses	Total Compensation
+
+I think there are a couple of different things it would be interesting to look
+at here
+
+* Salary histogram by:
+
+	* Office
+	* Position
+
+* Some way of comparing salary for a given position with respect to department.
+
+	* Maybe a bubble chart like gap minder, with one axis being salary, one
+	  axis being position, and color-coding the offices? 
+
+
+
 # ASSIGNMENT INFORMATION
 Points Possible: 100
 
