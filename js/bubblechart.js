@@ -69,7 +69,7 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
         .attr("x", width / 2)
         .attr("font-size", "12px")
         .attr("text-anchor", "middle")
-        .text(`Mouse-over to see all "${colors_field_pretty}" highlighted in black.`);
+        .text(`Mouse-over to see all matching "${colors_field_pretty}" highlighted in black.`);
 
     var cBubble = g.append("circle")
         .attr("cy", height + 30)
