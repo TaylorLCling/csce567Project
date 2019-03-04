@@ -3,7 +3,7 @@ var margin = { left:100, right:20, top:50, bottom:100 };
 var height = 500 - margin.top - margin.bottom, 
     width = 800 - margin.left - margin.right;
 
-d3.csv("data_2019.csv").then(function(data) {
+d3.csv("data/data_2019.csv").then(function(data) {
 
     // sanitize the data
     for (let index in data) {
