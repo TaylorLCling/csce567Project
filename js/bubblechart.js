@@ -19,8 +19,6 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
     let colors_field_pretty = colors_field.replace("_", " ");
     let xaxis_field_pretty = xaxis_field.replace("_", " ");
 
-    console.log(`max_salary = ${max_salary}, xaxis_field_domain = ${xaxis_field_domain}`);
-
 
     // set up the bubblechart area
     var g = d3.select("#chart-area")
@@ -46,10 +44,6 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
 
     var colorScale = d3.scaleOrdinal(d3.schemePastel1)
         .domain(caxis_field_domain);
-
-    // var continentColor = d3.scaleOrdinal()
-    //     .domain(["europe", "asia", "americas", "africa"])
-    //     .range(d3.schemePastel1);
 
     // Labels
     var xLabel = g.append("text")
@@ -95,7 +89,6 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
 
 
     let svg = d3.select("#bubble_chart_g");
-
     let color_index = {};
 
     let count = 0;
@@ -111,32 +104,39 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
           });
         };
 
+        function highlight(d) {
+            xLabel.text(`${xaxis_field_pretty}: ${datum[xaxis_field]}`);
+            cLabel.text(`${colors_field_pretty}: ${datum[colors_field]}`);
+            cBubble.attr("fill", colorScale(datum[colors_field]));
+            cBubble.attr("stroke", "black");
+            for (let c of color_index[datum[colors_field]]) {
+                c.attr("fill", "black");
+                c.moveToFront();
+            }
+        }
+
+        function unhighlight(d) {
+            xLabel.text("");
+            cLabel.text("");
+            cBubble.attr("fill", "white");
+            cBubble.attr("stroke", "white");
+            for (let c of color_index[datum[colors_field]]) {
+                c.attr("fill", colorScale(datum[colors_field]));
+                c.moveToFront();
+            }
+        }
+
         let circ = svg.append("circle")
             .attr("cx", x(datum[xaxis_field]) + 25)
             .attr("cy", y(datum.total_compensation / 10000))
             .attr("r", 2)
+            .attr("id", `bubble${count}`)
             .attr("fill", colorScale(datum[colors_field]))
-            .on("mouseover", function(d) {
-                xLabel.text(`${xaxis_field_pretty}: ${datum[xaxis_field]}`);
-                cLabel.text(`${colors_field_pretty}: ${datum[colors_field]}`);
-                cBubble.attr("fill", colorScale(datum[colors_field]));
-                cBubble.attr("stroke", "black");
-                for (let c of color_index[datum[colors_field]]) {
-                    c.attr("fill", "black");
-                    c.moveToFront();
-                }
-            }).on("mouseout", function(d) {
-                xLabel.text("");
-                cLabel.text("");
-                cBubble.attr("fill", "white");
-                cBubble.attr("stroke", "white");
-                for (let c of color_index[datum[colors_field]]) {
-                    c.attr("fill", colorScale(datum[colors_field]));
-                    c.moveToFront();
-                }
-            });
+            .attr("class", "bubble")
+            .on("mouseover", highlight).on("mouseout", unhighlight);
 
-            color_index[datum[colors_field]].push(circ);
+        color_index[datum[colors_field]].push(circ);
+        count += 1;
     }
 
     d3.select("#loadingtext").remove();
