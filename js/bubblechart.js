@@ -1,10 +1,14 @@
 function draw_bubble_data(the_data, colors_field, xaxis_field) {
     let max_salary = 0;
+    let min_salary = 9999999999;
     let xaxis_field_domain = [];
     let caxis_field_domain = []
     for (let datum of the_data) {
         if (datum.total_compensation > max_salary) {
             max_salary = datum.total_compensation;
+        }
+        if (datum.total_compensation < min_salary) {
+            min_salary = datum.total_compensation;
         }
         if (!(xaxis_field_domain.indexOf(datum[xaxis_field]) > -1)) {
             xaxis_field_domain.push(datum[xaxis_field]);
@@ -15,6 +19,7 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
     }
 
     max_salary = max_salary / 10000;
+    min_salary = min_salary / 10000;
 
     let colors_field_pretty = colors_field.replace("_", " ");
     let xaxis_field_pretty = xaxis_field.replace("_", " ");
@@ -36,7 +41,7 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
     // Scales
     var y = d3.scaleLinear()
         .range([0, height])
-        .domain([max_salary, 0]);
+        .domain([max_salary, min_salary]);
 
     var x = d3.scaleBand()
         .range([0, width])
@@ -78,7 +83,7 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
         .attr("x", -200)
         .attr("font-size", "20px")
         .attr("text-anchor", "middle")
-        .text("Total Compensation ($) / 10000")
+        .text("Total Compensation in 10000s of USD")
 
     // Y Axis
     var yAxisCall = d3.axisLeft(y)
