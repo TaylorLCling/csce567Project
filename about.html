@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<div class = "topnav">
+		<a href="index.html">Home</a>
+		<a class="active" href ="about.html">About</a>
+	</div>
+	<meta charset="utf-8">
+    <meta name="description" content="">
+    <title>State of SC Salary Visualization</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<h3>State of SC Salary Information Visualization</h3>
+
+<body>
+	Copyright (c) 2019 Charles Daniels, Taylor Clingenpeel, Omari Richards, all
+	rights reserved.
+
+	Completed to satisfy the requirements of University of South Carolina CSCE567
+	Project-01.
+
+	This project visualizes the most up to date (as of March 03 2019) state of SC
+	salary data. The state of SC has a policy of making the pay rate of all
+	government employees who make more than 50000 USD per year public information.
+
+	This project presents two styles of visualization, in two variations each:
+
+	"Bubble Chart" visualizations are designed to show how salary rates stratify
+	across both agency and job title. Either agency or job title may be selected
+	for horizontal positioning, and the other parameter will be used to generate
+	colors for each "bubble" (which represents a single person's salary, agency,
+	and job title). In this style of visualization, clear stratification can been
+	seen across different agencies and job titles. This view is not intended to
+	provide a detailed accounting of each individual's salary data, however a
+	separate bubble is drawn for each data point -- this lets the data speak for
+	itself and the human eye detect the strata, rather than attempting to identify
+	them algorithmicaly. In this view, mousing over a single bubble will highlight
+	all other bubbles which share it's color (whatever parameter is not used for
+	horizontal grouping).
+
+	"Bar Chart" visualizations are designed to show the distribution of salary data
+	for different agencies and job titles. Mousing over a single bar in either of
+	the bar chart views views will show the breakdown of whichever data point is
+	not used for horizontal grouping (i.e. mousing over a bar in the salary vs
+	agency chart will show the breakdown of agencies contained within that bar in a
+	tooltip).
+
+	We feel that these visualizations are collectively representative of different
+	types of information people might wish to examine with respect to SC salary
+	data:
+
+	How salaries stratify across different agencies and roles
+	How salaries are distributed across roles irrespective of agency
+	How salaries are distributed across agencies irrespective of role
+</body>
+</html>
+</html>
