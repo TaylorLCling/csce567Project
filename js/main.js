@@ -19,6 +19,6 @@ d3.csv("data/data_2019.csv").then(function(data) {
     }
 
     //draw_bubble_data(data, "job_title", "agency");
-    draw_bar_data(data, "job_title", "agency")
+    draw_bar_data(data, "job_title", "agency");
 
 });

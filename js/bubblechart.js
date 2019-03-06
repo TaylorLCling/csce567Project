@@ -86,7 +86,7 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
         .attr("text-anchor", "middle")
         .text("Total Compensation ($) / 10000")
 
-    // Y Axis
+    Y Axis
     var yAxisCall = d3.axisLeft(y)
         .tickFormat(function(d){ return +d; });
     g.append("g")
