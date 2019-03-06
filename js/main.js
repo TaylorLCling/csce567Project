@@ -25,8 +25,8 @@ d3.csv("data/data_2019.csv").then(function(data) {
 
 document.getElementById('bubbleAgencyButton').addEventListener("click", bubbleAgencyFunction, true);
 document.getElementById('bubbleTitleButton').addEventListener("click", bubbleTitleFunction, true);
-document.getElementById('officeButton').addEventListener("click", officeFunction, false);
-document.getElementById('positionButton').addEventListener("click", positionFunction, false);
+//document.getElementById('officeButton').addEventListener("click", officeFunction, false);
+//document.getElementById('positionButton').addEventListener("click", positionFunction, false);
 
 function bubbleAgencyFunction(){
     d3.select('#noBackend').remove();
