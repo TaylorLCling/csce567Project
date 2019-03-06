@@ -144,6 +144,4 @@ function draw_bubble_data(the_data, colors_field, xaxis_field) {
         count += 1;
     }
 
-    //d3.select("#loadingtext").remove();
-
 }
