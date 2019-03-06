@@ -18,6 +18,7 @@ d3.csv("data/data_2019.csv").then(function(data) {
         data[index].total_compensation= parseFloat(data[index].total_compensation.replace(/[^0-9.-]+/g,""));
     }
 
-    draw_bubble_data(data, "job_title", "agency");
+    //draw_bubble_data(data, "job_title", "agency");
+    draw_bar_data(data, "job_title", "agency")
 
 });
