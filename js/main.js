@@ -1,7 +1,7 @@
 
 var margin = { left:100, right:20, top:50, bottom:100 };
-var height = 500 - margin.top - margin.bottom, 
-    width = 800 - margin.left - margin.right;
+var height = 600 - margin.top - margin.bottom, 
+    width = 1300 - margin.left - margin.right;
 var formattedData;
 
 d3.csv("data/data_2019.csv").then(function(data) {
