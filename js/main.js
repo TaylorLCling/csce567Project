@@ -20,20 +20,25 @@ d3.csv("data/data_2019.csv").then(function(data) {
     }
     formattedData = data;
     draw_bubble_data(formattedData, "job_title", "agency");
-    // draw_bubble_data(data, "agency", "job_title");
-
     d3.select('#loadingtext').remove();
 });
 
-document.getElementById('bubbleButton').addEventListener("click", bubbleFunction, true);
+document.getElementById('bubbleAgencyButton').addEventListener("click", bubbleAgencyFunction, true);
+document.getElementById('bubbleTitleButton').addEventListener("click", bubbleTitleFunction, true);
 document.getElementById('officeButton').addEventListener("click", officeFunction, false);
 document.getElementById('positionButton').addEventListener("click", positionFunction, false);
 
-function bubbleFunction(){
+function bubbleAgencyFunction(){
     d3.select('#noBackend').remove();
     clearCanvas();
-    //draw_bubble_data(formattedData, "job_title", "agency");
     setTimeout(draw_bubble_data, 1,formattedData, "job_title", "agency");
+    d3.select('#loadingtext').remove()
+};
+
+function bubbleTitleFunction(){
+    d3.select('#noBackend').remove();
+    clearCanvas();;
+    setTimeout(draw_bubble_data, 1,formattedData, "agency", "job_title");
     d3.select('#loadingtext').remove()
 };
 
