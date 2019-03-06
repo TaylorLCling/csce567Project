@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="shortcut icon" href="favicon.ico">
 	<div class = "topnav">
 		<a class="active" href="index.html">Home</a>
 		<a href ="about.html">About</a>
@@ -12,16 +13,32 @@
 </head>
 
 <body>
+    <button id = "bubbleButton" class = "button">
+        Bubble Chart
+    </button>
+
+    <button id = "officeButton" class = "button">
+        Office Chart
+    </button>
+
+    <button id = "positionButton" class = "button">
+        Position Chart
+    </button>
+
     <div class="container">
-        <div class="row">
+        <div class="row" id='row'>
             <div id="chart-area"></div>  
-            <div id="loadingtext"><p>crunching data, please sit tight...</p></div>
+            <div id="loadingtext">
+                <p>
+                    crunching data, please sit tight...
+                </p>
+            </div>
         </div>
     </div>
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="js/bubblechart.js"></script>
-<script src="js/main.js"></script>
+    <script src = "js/bubblechart.js"></script>
+    <script src = "https://d3js.org/d3.v5.min.js"></script>
+    <script src = "js/main.js"></script>
 
 </body>
 </html>

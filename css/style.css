@@ -8,6 +8,20 @@
 	height:50px;
 }
 
+.button {
+  background-color: #3dade2;
+  border: none;
+  color: black;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
 .navbar-brand {
 	height: 60px;
 	padding: 5px 0px;
